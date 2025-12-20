@@ -8,5 +8,6 @@ router.get('/', protect, getAllStudents)
 router.get('/:id', getUserById)
 router.post('/login', loginUser)
 router.put('/update/:id', updateUser )
-router.delete('/:id', deleteUser) 
-export default router        
+router.delete('/:id', deleteUser)
+ 
+export default router       
