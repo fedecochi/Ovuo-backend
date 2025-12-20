@@ -53,14 +53,15 @@ export const updateProduct = async (req, res) => {
         let products = await product.findById(productId)
         if (!products) return res.status(404).json({ message: "Product not found" })
       //update only provided fields
-    product.name = name || products.name
-    product.description = description || products.description
-    product.price = price || products.price
-    product.category = category || products.category
-    product.image = image || products.image
-    product.stock = stock || products.stock
+    products.name = name || products.name
+    products.description = description || products.description
+    products.price = price || products.price
+    products.category = category || products.category
+    products.image = image || products.image
+    products.stock = stock || products.stock
     await products.save()   
-    res.status(200).json({ message: "Product updated successfully", product:{
+    res.status(200).json({ message: "Product updated successfully", 
+        product:{
         id:product._id,
         name:product.name,
         description:product.description,
